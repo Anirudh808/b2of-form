@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 py-6 md:py-12 px-3 sm:px-4 md:px-6 lg:px-8 font-sans relative">
       {/* Admin Login Button - Positioned to not overlap form */}
-      <Link href="/admin" className="top-3 right-3 md:top-4 md:right-4 bg-gray-100 text-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-md text-xs md:text-sm font-medium hover:bg-gray-300 transition-colors shadow-sm z-10">
+      <Link href="/admin" className="top-3 right-3 md:top-4 md:right-4 bg-gray-100 text-slate-800 px-6 py-3 md:px-8 md:py-4 rounded-md text-xs md:text-sm font-medium hover:bg-gray-300 transition-colors shadow-sm z-10">
         Admin
       </Link>
 
