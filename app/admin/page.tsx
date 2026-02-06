@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { verifyLogin, logout, getRegistrations, checkAuth } from "../actions/admin";
 import { useActionState } from "react";
+import Link from "next/link";
 
 // Types
 type UserForm = {
@@ -110,7 +111,10 @@ export default function AdminPage() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 md:mb-8 gap-3">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">Registrations Dashboard</h1>
-          <button onClick={handleLogout} className="bg-red-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-sm hover:bg-red-700 transition">Logout</button>
+					<div className="flex gap-2">
+						<Link href={"/"} className="bg-gray-200 text-slate-800 px-3 py-1.5 sm:px-4 sm:py-2 rounded text-sm hover:bg-slate-300 transition">Home</Link>
+						<button onClick={handleLogout} className="bg-red-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-sm hover:bg-red-700 transition">Logout</button>
+					</div>
         </div>
 
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
