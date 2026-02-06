@@ -23,9 +23,9 @@ export default function Home() {
   }, [state?.success]);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-6 md:py-12 px-3 sm:px-4 md:px-6 lg:px-8 font-sans relative">
+    <div className="min-h-screen bg-gray-50 py-6 md:py-12 px-3 sm:px-4 md:px-6 lg:px-8 font-sans relative text-gray-800">
       {/* Admin Login Button - Positioned to not overlap form */}
-      <Link href="/admin" className="top-3 right-3 md:top-4 md:right-4 bg-gray-100 text-slate-800 px-6 py-3 md:px-8 md:py-4 rounded-md text-xs md:text-sm font-medium hover:bg-gray-300 transition-colors shadow-sm z-10">
+      <Link href="/admin" className="absolute top-3 right-3 md:top-4 md:right-4 bg-gray-100 text-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-md text-xs md:text-sm font-medium hover:bg-gray-300 transition-colors shadow-sm z-10">
         Admin
       </Link>
 
@@ -54,7 +54,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 sm:grid-cols-6 gap-2 md:gap-4 items-center">
                     <label htmlFor="firstName" className="sm:col-span-2 font-medium text-gray-700 text-sm md:text-base">First Name :</label>
                     <div className="sm:col-span-4">
-                        <input type="text" name="firstName" id="firstName" required className="w-full border-b border-gray-300 focus:border-black outline-none py-1 px-2 bg-transparent transition-colors text-sm md:text-base" />
+                        <input type="text" name="firstName" id="firstName" required className="text-black w-full border-b border-gray-300 focus:border-black outline-none py-1 px-2 bg-transparent transition-colors text-sm md:text-base" />
                         {state?.errors?.firstName && <p className="text-red-500 text-xs md:text-sm mt-1">{state.errors.firstName}</p>}
                     </div>
                 </div>
