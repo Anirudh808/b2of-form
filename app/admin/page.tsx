@@ -105,29 +105,29 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-8">
+    <div className="min-h-screen bg-gray-50 p-3 sm:p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Registrations Dashboard</h1>
-          <button onClick={handleLogout} className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">Logout</button>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 md:mb-8 gap-3">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">Registrations Dashboard</h1>
+          <button onClick={handleLogout} className="bg-red-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-sm hover:bg-red-700 transition">Logout</button>
         </div>
 
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           {loading ? (
-             <div className="p-8 text-center text-gray-500">Loading registrations...</div>
+             <div className="p-6 md:p-8 text-center text-gray-500 text-sm md:text-base">Loading registrations...</div>
           ) : registrations.length === 0 ? (
-            <div className="p-8 text-center text-gray-500">No registrations found.</div>
+            <div className="p-6 md:p-8 text-center text-gray-500 text-sm md:text-base">No registrations found.</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Child Name</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Parent</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Summer Camp</th>
+                    <th scope="col" className="px-3 md:px-6 py-2 md:py-3 text-left text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                    <th scope="col" className="px-3 md:px-6 py-2 md:py-3 text-left text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wider">Child Name</th>
+                    <th scope="col" className="px-3 md:px-6 py-2 md:py-3 text-left text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">Grade</th>
+                    <th scope="col" className="px-3 md:px-6 py-2 md:py-3 text-left text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">Parent</th>
+                    <th scope="col" className="px-3 md:px-6 py-2 md:py-3 text-left text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                    <th scope="col" className="px-3 md:px-6 py-2 md:py-3 text-left text-[10px] md:text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell">Summer Camp</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -137,23 +137,23 @@ export default function AdminPage() {
                       onClick={() => handleRowClick(reg)}
                       className="hover:bg-gray-100 cursor-pointer transition-colors"
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-500">
                         {new Date(reg.createdAt).toLocaleDateString()}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <td className="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap text-xs md:text-sm font-medium text-gray-900">
                         {reg.firstName} {reg.lastName}
                       </td>
-                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                       <td className="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-500 hidden sm:table-cell">
                         {reg.grade}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-500 hidden md:table-cell">
                         {reg.parentName}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-500">
                         <div>{reg.parentPhone}</div>
-                        <div className="text-xs">{reg.parentEmail}</div>
+                        <div className="text-[10px] md:text-xs">{reg.parentEmail}</div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-3 md:px-6 py-3 md:py-4 whitespace-nowrap text-xs md:text-sm text-gray-500 hidden lg:table-cell">
                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${reg.intrestedInSummerCamp === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
                             {reg.intrestedInSummerCamp}
                         </span>
@@ -169,62 +169,62 @@ export default function AdminPage() {
 
       {/* Modal */}
       {showModal && selectedUser && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={closeModal}>
-          <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Registration Details</h2>
-                <button onClick={closeModal} className="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center p-3 md:p-4 z-50 overflow-y-auto" onClick={closeModal}>
+          <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full my-4 max-h-[85vh] md:max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="p-4 sm:p-6">
+              <div className="flex justify-between items-center mb-4 md:mb-6">
+                <h2 className="text-lg md:text-2xl font-bold text-gray-900">Registration Details</h2>
+                <button onClick={closeModal} className="text-gray-400 hover:text-gray-600 text-2xl md:text-3xl leading-none">&times;</button>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {/* Kids Information */}
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-4">Kids Information</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <h3 className="text-base md:text-lg font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-3 md:mb-4">Kids Information</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-500">First Name</label>
-                      <p className="mt-1 text-gray-900">{selectedUser.firstName}</p>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">First Name</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.firstName}</p>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-500">Last Name</label>
-                      <p className="mt-1 text-gray-900">{selectedUser.lastName}</p>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">Last Name</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.lastName}</p>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-500">Grade</label>
-                      <p className="mt-1 text-gray-900">{selectedUser.grade}</p>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">Grade</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.grade}</p>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-500">School Name</label>
-                      <p className="mt-1 text-gray-900">{selectedUser.schoolName}</p>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">School Name</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.schoolName}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Parent Information */}
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-4">Parent Information</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <h3 className="text-base md:text-lg font-bold text-gray-800 border-b-2 border-gray-200 pb-2 mb-3 md:mb-4">Parent Information</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-500">Parent Name</label>
-                      <p className="mt-1 text-gray-900">{selectedUser.parentName}</p>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">Parent Name</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.parentName}</p>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-500">Phone Number</label>
-                      <p className="mt-1 text-gray-900">{selectedUser.parentPhone}</p>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">Phone Number</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.parentPhone}</p>
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-500">Email ID</label>
-                      <p className="mt-1 text-gray-900">{selectedUser.parentEmail || 'N/A'}</p>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">Email ID</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.parentEmail || 'N/A'}</p>
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-500">Address</label>
-                      <p className="mt-1 text-gray-900">{selectedUser.address}</p>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">Address</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.address}</p>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-500">Interested in Summer Camp</label>
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">Interested in Summer Camp</label>
                       <p className="mt-1">
-                        <span className={`px-3 py-1 inline-flex text-sm font-semibold rounded-full ${selectedUser.intrestedInSummerCamp === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
+                        <span className={`px-2 md:px-3 py-1 inline-flex text-xs md:text-sm font-semibold rounded-full ${selectedUser.intrestedInSummerCamp === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
                           {selectedUser.intrestedInSummerCamp}
                         </span>
                       </p>
@@ -233,8 +233,8 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              <div className="mt-8 flex justify-end">
-                <button onClick={closeModal} className="bg-gray-900 text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors">
+              <div className="mt-6 md:mt-8 flex justify-end">
+                <button onClick={closeModal} className="bg-gray-900 text-white px-4 md:px-6 py-2 rounded-md text-sm md:text-base hover:bg-gray-800 transition-colors">
                   Close
                 </button>
               </div>
@@ -245,3 +245,4 @@ export default function AdminPage() {
     </div>
   );
 }
+

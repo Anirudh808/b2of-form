@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { registerUser } from "../actions/register";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const initialState = {
   message: "",
@@ -36,9 +37,10 @@ export default function RegisterPage() {
 
             <div className="flex justify-center items-center gap-4 mb-4">
                {/* Logo Placeholder */}
-                <div className="w-32 h-16 bg-gray-200 flex items-center justify-center border-2 border-dashed border-gray-400 rounded">
+                {/* <div className="w-32 h-16 bg-gray-200 flex items-center justify-center border-2 border-dashed border-gray-400 rounded">
                     <span className="text-gray-500 text-sm font-bold">LOGO HERE</span>
-                </div>
+                </div> */}
+								<Image src="/B2of-Logo-file-registered_black.png" alt="Logo" width={100} height={100} />
             </div>
             
             <h1 className="text-2xl font-bold uppercase tracking-wider text-gray-800 mb-1">Registration Form</h1>
