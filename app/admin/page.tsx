@@ -15,6 +15,7 @@ type UserForm = {
   parentEmail: string | null;
   parentPhone: string;
   address: string;
+	notes: string | null;
   intrestedInSummerCamp: "Yes" | "No";
   createdAt: Date;
 };
@@ -220,6 +221,11 @@ export default function AdminPage() {
                     <div className="md:col-span-2">
                       <label className="block text-xs md:text-sm font-medium text-gray-500">Address</label>
                       <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.address}</p>
+                    </div>
+										
+                    <div className="md:col-span-2">
+                      <label className="block text-xs md:text-sm font-medium text-gray-500">Notes</label>
+                      <p className="mt-1 text-sm md:text-base text-gray-900">{selectedUser.notes || 'N/A'}</p>
                     </div>
                     <div>
                       <label className="block text-xs md:text-sm font-medium text-gray-500">Interested in Summer Camp</label>

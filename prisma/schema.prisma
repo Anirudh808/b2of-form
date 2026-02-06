@@ -28,6 +28,7 @@ model UserForm {
 	parentEmail String?
 	parentPhone String
 	address String
+	notes String?
 	intrestedInSummerCamp IntrestedInSummerCamp
 	createdAt DateTime @default(now())
 	updatedAt DateTime @updatedAt

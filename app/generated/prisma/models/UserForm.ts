@@ -44,6 +44,7 @@ export type UserFormMinAggregateOutputType = {
   parentEmail: string | null
   parentPhone: string | null
   address: string | null
+  notes: string | null
   intrestedInSummerCamp: $Enums.IntrestedInSummerCamp | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -59,6 +60,7 @@ export type UserFormMaxAggregateOutputType = {
   parentEmail: string | null
   parentPhone: string | null
   address: string | null
+  notes: string | null
   intrestedInSummerCamp: $Enums.IntrestedInSummerCamp | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -74,6 +76,7 @@ export type UserFormCountAggregateOutputType = {
   parentEmail: number
   parentPhone: number
   address: number
+  notes: number
   intrestedInSummerCamp: number
   createdAt: number
   updatedAt: number
@@ -99,6 +102,7 @@ export type UserFormMinAggregateInputType = {
   parentEmail?: true
   parentPhone?: true
   address?: true
+  notes?: true
   intrestedInSummerCamp?: true
   createdAt?: true
   updatedAt?: true
@@ -114,6 +118,7 @@ export type UserFormMaxAggregateInputType = {
   parentEmail?: true
   parentPhone?: true
   address?: true
+  notes?: true
   intrestedInSummerCamp?: true
   createdAt?: true
   updatedAt?: true
@@ -129,6 +134,7 @@ export type UserFormCountAggregateInputType = {
   parentEmail?: true
   parentPhone?: true
   address?: true
+  notes?: true
   intrestedInSummerCamp?: true
   createdAt?: true
   updatedAt?: true
@@ -231,6 +237,7 @@ export type UserFormGroupByOutputType = {
   parentEmail: string | null
   parentPhone: string
   address: string
+  notes: string | null
   intrestedInSummerCamp: $Enums.IntrestedInSummerCamp
   createdAt: Date
   updatedAt: Date
@@ -269,6 +276,7 @@ export type UserFormWhereInput = {
   parentEmail?: Prisma.StringNullableFilter<"UserForm"> | string | null
   parentPhone?: Prisma.StringFilter<"UserForm"> | string
   address?: Prisma.StringFilter<"UserForm"> | string
+  notes?: Prisma.StringNullableFilter<"UserForm"> | string | null
   intrestedInSummerCamp?: Prisma.EnumIntrestedInSummerCampFilter<"UserForm"> | $Enums.IntrestedInSummerCamp
   createdAt?: Prisma.DateTimeFilter<"UserForm"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"UserForm"> | Date | string
@@ -284,6 +292,7 @@ export type UserFormOrderByWithRelationInput = {
   parentEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   parentPhone?: Prisma.SortOrder
   address?: Prisma.SortOrder
+  notes?: Prisma.SortOrderInput | Prisma.SortOrder
   intrestedInSummerCamp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -302,6 +311,7 @@ export type UserFormWhereUniqueInput = Prisma.AtLeast<{
   parentEmail?: Prisma.StringNullableFilter<"UserForm"> | string | null
   parentPhone?: Prisma.StringFilter<"UserForm"> | string
   address?: Prisma.StringFilter<"UserForm"> | string
+  notes?: Prisma.StringNullableFilter<"UserForm"> | string | null
   intrestedInSummerCamp?: Prisma.EnumIntrestedInSummerCampFilter<"UserForm"> | $Enums.IntrestedInSummerCamp
   createdAt?: Prisma.DateTimeFilter<"UserForm"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"UserForm"> | Date | string
@@ -317,6 +327,7 @@ export type UserFormOrderByWithAggregationInput = {
   parentEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   parentPhone?: Prisma.SortOrder
   address?: Prisma.SortOrder
+  notes?: Prisma.SortOrderInput | Prisma.SortOrder
   intrestedInSummerCamp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -340,6 +351,7 @@ export type UserFormScalarWhereWithAggregatesInput = {
   parentEmail?: Prisma.StringNullableWithAggregatesFilter<"UserForm"> | string | null
   parentPhone?: Prisma.StringWithAggregatesFilter<"UserForm"> | string
   address?: Prisma.StringWithAggregatesFilter<"UserForm"> | string
+  notes?: Prisma.StringNullableWithAggregatesFilter<"UserForm"> | string | null
   intrestedInSummerCamp?: Prisma.EnumIntrestedInSummerCampWithAggregatesFilter<"UserForm"> | $Enums.IntrestedInSummerCamp
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"UserForm"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"UserForm"> | Date | string
@@ -354,6 +366,7 @@ export type UserFormCreateInput = {
   parentEmail?: string | null
   parentPhone: string
   address: string
+  notes?: string | null
   intrestedInSummerCamp: $Enums.IntrestedInSummerCamp
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -369,6 +382,7 @@ export type UserFormUncheckedCreateInput = {
   parentEmail?: string | null
   parentPhone: string
   address: string
+  notes?: string | null
   intrestedInSummerCamp: $Enums.IntrestedInSummerCamp
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -383,6 +397,7 @@ export type UserFormUpdateInput = {
   parentEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   parentPhone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   intrestedInSummerCamp?: Prisma.EnumIntrestedInSummerCampFieldUpdateOperationsInput | $Enums.IntrestedInSummerCamp
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -398,6 +413,7 @@ export type UserFormUncheckedUpdateInput = {
   parentEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   parentPhone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   intrestedInSummerCamp?: Prisma.EnumIntrestedInSummerCampFieldUpdateOperationsInput | $Enums.IntrestedInSummerCamp
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -413,6 +429,7 @@ export type UserFormCreateManyInput = {
   parentEmail?: string | null
   parentPhone: string
   address: string
+  notes?: string | null
   intrestedInSummerCamp: $Enums.IntrestedInSummerCamp
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -427,6 +444,7 @@ export type UserFormUpdateManyMutationInput = {
   parentEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   parentPhone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   intrestedInSummerCamp?: Prisma.EnumIntrestedInSummerCampFieldUpdateOperationsInput | $Enums.IntrestedInSummerCamp
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -442,6 +460,7 @@ export type UserFormUncheckedUpdateManyInput = {
   parentEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   parentPhone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   intrestedInSummerCamp?: Prisma.EnumIntrestedInSummerCampFieldUpdateOperationsInput | $Enums.IntrestedInSummerCamp
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -457,6 +476,7 @@ export type UserFormCountOrderByAggregateInput = {
   parentEmail?: Prisma.SortOrder
   parentPhone?: Prisma.SortOrder
   address?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   intrestedInSummerCamp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -476,6 +496,7 @@ export type UserFormMaxOrderByAggregateInput = {
   parentEmail?: Prisma.SortOrder
   parentPhone?: Prisma.SortOrder
   address?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   intrestedInSummerCamp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -491,6 +512,7 @@ export type UserFormMinOrderByAggregateInput = {
   parentEmail?: Prisma.SortOrder
   parentPhone?: Prisma.SortOrder
   address?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   intrestedInSummerCamp?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -536,6 +558,7 @@ export type UserFormSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   parentEmail?: boolean
   parentPhone?: boolean
   address?: boolean
+  notes?: boolean
   intrestedInSummerCamp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -551,6 +574,7 @@ export type UserFormSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   parentEmail?: boolean
   parentPhone?: boolean
   address?: boolean
+  notes?: boolean
   intrestedInSummerCamp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -566,6 +590,7 @@ export type UserFormSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   parentEmail?: boolean
   parentPhone?: boolean
   address?: boolean
+  notes?: boolean
   intrestedInSummerCamp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -581,12 +606,13 @@ export type UserFormSelectScalar = {
   parentEmail?: boolean
   parentPhone?: boolean
   address?: boolean
+  notes?: boolean
   intrestedInSummerCamp?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserFormOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "firstName" | "lastName" | "grade" | "schoolName" | "parentName" | "parentEmail" | "parentPhone" | "address" | "intrestedInSummerCamp" | "createdAt" | "updatedAt", ExtArgs["result"]["userForm"]>
+export type UserFormOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "firstName" | "lastName" | "grade" | "schoolName" | "parentName" | "parentEmail" | "parentPhone" | "address" | "notes" | "intrestedInSummerCamp" | "createdAt" | "updatedAt", ExtArgs["result"]["userForm"]>
 
 export type $UserFormPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "UserForm"
@@ -601,6 +627,7 @@ export type $UserFormPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     parentEmail: string | null
     parentPhone: string
     address: string
+    notes: string | null
     intrestedInSummerCamp: $Enums.IntrestedInSummerCamp
     createdAt: Date
     updatedAt: Date
@@ -1036,6 +1063,7 @@ export interface UserFormFieldRefs {
   readonly parentEmail: Prisma.FieldRef<"UserForm", 'String'>
   readonly parentPhone: Prisma.FieldRef<"UserForm", 'String'>
   readonly address: Prisma.FieldRef<"UserForm", 'String'>
+  readonly notes: Prisma.FieldRef<"UserForm", 'String'>
   readonly intrestedInSummerCamp: Prisma.FieldRef<"UserForm", 'IntrestedInSummerCamp'>
   readonly createdAt: Prisma.FieldRef<"UserForm", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"UserForm", 'DateTime'>

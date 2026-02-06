@@ -13,6 +13,7 @@ const schema = z.object({
   parentPhone: z.string().min(1, "Phone Number is required"),
   parentEmail: z.string().email("Invalid email address").optional().or(z.literal("")),
   address: z.string().min(1, "Address is required"),
+  notes: z.string().optional().or(z.literal("")),
   intrestedInSummerCamp: z.enum(["Yes", "No"]),
 });
 
@@ -26,6 +27,7 @@ export async function registerUser(prevState: any, formData: FormData) {
     parentPhone: formData.get("parentPhone"),
     parentEmail: formData.get("parentEmail"),
     address: formData.get("address"),
+    notes: formData.get("notes"),
     intrestedInSummerCamp: formData.get("intrestedInSummerCamp"),
   });
 
@@ -47,6 +49,7 @@ export async function registerUser(prevState: any, formData: FormData) {
         parentPhone: validatedFields.data.parentPhone,
         parentEmail: validatedFields.data.parentEmail || null,
         address: validatedFields.data.address,
+        notes: validatedFields.data.notes || null,
         intrestedInSummerCamp: validatedFields.data.intrestedInSummerCamp as "Yes" | "No",
       },
     });

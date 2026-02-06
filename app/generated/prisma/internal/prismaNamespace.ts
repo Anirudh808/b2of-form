@@ -527,6 +527,7 @@ export const UserFormScalarFieldEnum = {
   parentEmail: 'parentEmail',
   parentPhone: 'parentPhone',
   address: 'address',
+  notes: 'notes',
   intrestedInSummerCamp: 'intrestedInSummerCamp',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

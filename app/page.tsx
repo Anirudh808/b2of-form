@@ -121,6 +121,14 @@ export default function Home() {
                     </div>
                 </div>
 
+								<div className="grid grid-cols-1 sm:grid-cols-6 gap-2 md:gap-4 items-start">
+                    <label htmlFor="notes" className="sm:col-span-2 font-medium text-gray-700 text-sm md:text-base">Notes (Optional) :</label>
+                    <div className="sm:col-span-4">
+                        <textarea name="notes" id="notes" rows={3} className="w-full border border-gray-300 focus:border-black rounded-md outline-none p-2 bg-transparent transition-colors text-sm md:text-base"></textarea>
+                         {state?.errors?.notes && <p className="text-red-500 text-xs md:text-sm mt-1">{state.errors.notes}</p>}
+                    </div>
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-6 gap-2 md:gap-4 items-center">
                     <label className="sm:col-span-2 font-medium text-gray-700 text-sm md:text-base">Interested in Summer Camp :</label>
                     <div className="sm:col-span-4 flex gap-4 md:gap-6">

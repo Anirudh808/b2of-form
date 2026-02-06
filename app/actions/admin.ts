@@ -37,6 +37,7 @@ export async function getRegistrations() {
     const data = await prisma.userForm.findMany({
       orderBy: { createdAt: "desc" },
     });
+
     return { authorized: true, data };
   } catch (error) {
     console.error("Failed to fetch registrations:", error);
