@@ -34,14 +34,6 @@ export default function Home() {
         
         {/* Header Section */}
         <div className="text-center mb-6 md:mb-10 relative">
-            {/* Registration Fee Badge - Smaller on mobile */}
-            <div className="absolute top-0 right-0 p-1 md:p-2 border border-gray-800 rounded-full w-16 h-16 md:w-24 md:h-24 flex items-center justify-center text-[9px] md:text-xs text-center transform rotate-12 bg-white shadow-sm">
-                <div className="flex flex-col">
-                    <span className="font-bold">REGISTRATION</span>
-                    <span className="font-bold">FEE</span>
-                    <span className="text-gray-600">Rs. 200/ Kid</span>
-                </div>
-            </div>
 
             <div className="flex justify-center items-center gap-4 mb-3 md:mb-4">
                {/* Logo */}
