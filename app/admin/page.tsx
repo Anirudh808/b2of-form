@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { verifyLogin, logout, getRegistrations, checkAuth } from "../actions/admin";
+import { verifyLogin, logout, getRegistrations, checkAuth, deleteRegistration } from "../actions/admin";
 import { useActionState } from "react";
 import Link from "next/link";
 
@@ -32,6 +32,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [selectedUser, setSelectedUser] = useState<UserForm | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   
   const [loginState, loginAction, isLoginPending] = useActionState(verifyLogin, loginInitialState);
 
@@ -78,6 +79,36 @@ export default function AdminPage() {
     setSelectedUser(null);
   };
 
+  const handleDelete = async () => {
+    if (!selectedUser) return;
+
+    // Show confirmation dialog
+    const confirmed = window.confirm(
+      `Are you sure you want to delete the registration for ${selectedUser.firstName} ${selectedUser.lastName}? This action cannot be undone.`
+    );
+
+    if (!confirmed) return;
+
+    setDeleting(true);
+    try {
+      const result = await deleteRegistration(selectedUser.id);
+
+      if (result.success) {
+        // Remove the deleted user from the registrations list
+        setRegistrations((prev) => prev.filter((reg) => reg.id !== selectedUser.id));
+        // Close the modal
+        closeModal();
+      } else {
+        alert(`Failed to delete user: ${result.message}`);
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      alert("An error occurred while deleting the user. Please try again.");
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   if (isAuthenticated === null) {
       return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
   }
@@ -110,7 +141,10 @@ export default function AdminPage() {
     <div className="min-h-screen bg-gray-50 p-3 sm:p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 md:mb-8 gap-3">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">Registrations Dashboard</h1>
+					<div className="flex flex-col">
+						<h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">Registrations Dashboard</h1>
+						<span className="text-sm md:text-base text-gray-500">{registrations.length || 0} registrations</span>
+					</div>
 					<div className="flex gap-2">
 						<Link href={"/"} className="bg-gray-200 text-slate-800 px-3 py-1.5 sm:px-4 sm:py-2 rounded text-sm hover:bg-slate-300 transition">Home</Link>
 						<button onClick={handleLogout} className="bg-red-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-sm hover:bg-red-700 transition">Logout</button>
@@ -243,7 +277,14 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              <div className="mt-6 md:mt-8 flex justify-end">
+              <div className="mt-6 md:mt-8 flex justify-between gap-3">
+                <button 
+                  onClick={handleDelete} 
+                  disabled={deleting}
+                  className="bg-red-600 text-white px-4 md:px-6 py-2 rounded-md text-sm md:text-base hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {deleting ? "Deleting..." : "Delete"}
+                </button>
                 <button onClick={closeModal} className="bg-gray-900 text-white px-4 md:px-6 py-2 rounded-md text-sm md:text-base hover:bg-gray-800 transition-colors">
                   Close
                 </button>

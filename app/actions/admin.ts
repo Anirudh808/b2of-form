@@ -49,3 +49,23 @@ export async function checkAuth() {
     const cookieStore = await cookies();
     return cookieStore.get(COOKIE_NAME)?.value === "true";
 }
+
+export async function deleteRegistration(userId: number) {
+  const cookieStore = await cookies();
+  const isLoggedIn = cookieStore.get(COOKIE_NAME)?.value === "true";
+
+  if (!isLoggedIn) {
+    return { success: false, message: "Unauthorized" };
+  }
+
+  try {
+    await prisma.userForm.delete({
+      where: { id: userId },
+    });
+
+    return { success: true, message: "User deleted successfully" };
+  } catch (error) {
+    console.error("Failed to delete user:", error);
+    return { success: false, message: "Failed to delete user" };
+  }
+}
